@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class AddUser extends StatelessWidget
@@ -14,19 +15,16 @@ class AddUser extends StatelessWidget
     );
   }
 }
-
 class User extends StatelessWidget
 {
+  final DatabaseReference database = FirebaseDatabase.instance.reference().child("users");
 
-  void addUser ()
+  void addUser()
   {
-    final databaseReference = FirebaseDatabase.instance.reference();
-    
-    databaseReference.child("users").set({
-      "name": "conrad",
-      "contact": "0706848422"
-    });
-
+      database.push().set({
+        "name" : "Conrad",
+        "contact" : "0706848422"
+      });
   }
 
   Widget build(BuildContext context)
@@ -37,7 +35,7 @@ class User extends StatelessWidget
         children: <Widget>[
           new TextFormField(
             decoration: InputDecoration(
-              labelText: 'names',
+              labelText: 'Names',
               hintText: 'Type your names here'
             ),
 
