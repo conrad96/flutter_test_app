@@ -51,7 +51,7 @@ class User extends StatelessWidget
           new RaisedButton.icon(onPressed: ()
           {
             addUser();
-          }, icon: Icon(Icons.add), label: Text('Create Account'))
+          }, icon: Icon(Icons.add), label: Text('Add user'))
 
         ],
       ),
