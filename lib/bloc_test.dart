@@ -30,12 +30,15 @@ class _bloc extends State<BlocExample>{
   Widget build(BuildContext context) {
     
     return Container(
-      padding: EdgeInsets.only(left: 150.0,right: 50.0),
+      //padding: EdgeInsets.only(left: 150.0,right: 50.0),
       child: Column(
         children: <Widget>[
           Text("${counter}", style: TextStyle(fontSize: 45.0),),
           SizedBox(height: 95.0,),
-          RaisedButton(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              RaisedButton(
             onPressed: (){
               counter_inc();
             },
@@ -49,6 +52,8 @@ class _bloc extends State<BlocExample>{
             color: Colors.blue,
             child: Text("-"),
           )
+            ],
+          ),
         ],
       ),
     );
