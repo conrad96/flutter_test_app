@@ -10,7 +10,13 @@ class ChatApp extends StatelessWidget{
     return MaterialApp(
       title: 'Bloc parttern tests',
       color: Colors.redAccent,
-      home: BlocExample(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Counter"),
+          centerTitle: true,
+        ),
+        body: BlocExample(),
+      ),
       theme: ThemeData.dark(),
     );
   }
