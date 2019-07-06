@@ -8,13 +8,27 @@ class BlocExample extends StatefulWidget{
 }
 class _bloc extends State<BlocExample>{
   var counter = 0;
+
   counter_inc(){
-    counter++;
+    setState(() {
+      counter++;
+    });
+  }
+
+  counter_dec(){
+    setState(() {
+      if(counter < 1){
+        counter = 0;
+      }else{
+        counter--; 
+      }
+     
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    
     return Container(
       padding: EdgeInsets.only(left: 150.0,right: 50.0),
       child: Column(
@@ -27,6 +41,13 @@ class _bloc extends State<BlocExample>{
             },
             color: Colors.blue,
             child: Text("+"),
+          ),
+          RaisedButton(
+            onPressed: (){
+              counter_dec();
+            },
+            color: Colors.blue,
+            child: Text("-"),
           )
         ],
       ),
